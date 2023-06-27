@@ -1,26 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
+<html>
+<head>
+<link href="/assets/css/style.css" rel="stylesheet">
+<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>PopWatch</title>
-    </head>
+       
+<div class="position-fixed top-0 right-0 w-full flex items-center justify-between bg-gray-200 p-4 rounded-lg">
+    <input type="text" class="bg-gray-100 text-gray-800 border-none rounded-lg w-full p-2.5" placeholder="Search">
+    <button class="bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
+      Search
+    </button>
+  </div>
+</head>
+<body>
+<header class="bg-rose-800">
+hello
+</header>
 
-    <body>
-        <header class="bg-rose-800">
-            hello
-        </header>
+<main>
 
-        <main>
+</main>
 
-        </main>
+<footer>
 
-        <footer>
+</footer>
+<input type="checkbox" class="sc-bBABsx kcOmDm indb-header-search state sbar mobileSearchStater toggle" id="navSearch-searchState" name="navSearch-searchState" aria-hidden="true">
 
-        </footer>
+<div id="suggestion-search-container" class="nav-search__search-container sbar sc-kgTSHT sc-jfvJ-s hidden">
+  <form id="nav-search-form" name="nav-search-form" method="get" action="/find" class="searchform imdb-header__search-form sc-dmctIk bzHBIR" role="search">
+    <div class="sc-hHTYSt bSEIOj">
+      <div class="sc-idKobr iHkrUj searchform inputContainer">
+        <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-navSuggestionSearch" aria-expanded="false" class="react-autosuggest container">
+          <input type="search" value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-navSuggestionSearch" class="indb-header-search input searchTypeahead input react-autosuggest__input" id="suggestion-search" name="g" placeholder="Search IMDb" aria-label="Search IMDb" autocapitalize="off" autocorrect="off" spellcheck="true">
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="react-autowhatever-navSuggestionSearch" role="listbox" class="sc-kSBLkt gaNOlz react-autosuggest__suggestions-container indb-header search-menu"></div>
+</div>
 
-        <script src="./assets/js/script.js"></script>
-    </body>
+<div class="w-full bg-gray-100 border-gray-200 rounded-lg p-4 mt-4">
+    <a href="index.html" class="text-gray-800 text-base font-semibold">
+    Main page
+    </a>
+  </div>
+  <a href="index.html"></a>
+<script src="./assets/js/script.js"></script>
+</body>
 </html>
