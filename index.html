@@ -1,55 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="/assets/css/style.css" rel="stylesheet">
-<meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <title>PopWatch</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <title>PopWatch</title>
+    <style>
+        .center-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .center-top h1 {
+            position: absolute;
+            top: 20px;
+        }
+    </style>
 </head>
 
-
-<body>
-    <form>
-        <input type="search" placeholder="Search...">
-        <button type="submit">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-      
-<header class="bg-rose-800">
-hello
-</header>
-
-<main>
-
-</main>
-
-<footer>
-
-</footer>
-<input type="checkbox" class="sc-bBABsx kcOmDm indb-header-search state sbar mobileSearchStater toggle" id="navSearch-searchState" name="navSearch-searchState" aria-hidden="true">
-
-<div id="suggestion-search-container" class="nav-search__search-container sbar sc-kgTSHT sc-jfvJ-s hidden">
-  <form id="nav-search-form" name="nav-search-form" method="get" action="/find" class="searchform imdb-header__search-form sc-dmctIk bzHBIR" role="search">
-    <div class="sc-hHTYSt bSEIOj">
-      <div class="sc-idKobr iHkrUj searchform inputContainer">
-        <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-navSuggestionSearch" aria-expanded="false" class="react-autosuggest container">
-          <input type="search" value="" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-navSuggestionSearch" class="indb-header-search input searchTypeahead input react-autosuggest__input" id="suggestion-search" name="g" placeholder="Search IMDb" aria-label="Search IMDb" autocapitalize="off" autocorrect="off" spellcheck="true">
+<body class="bg-gray-100">
+    <header class="bg-rose-800 py-4 text-white">
+        <div class="container mx-auto flex justify-end items-center px-4"> 
+            <form class="flex">
+                <input type="search" placeholder="Search..." class="rounded-l-lg px-4 py-2 outline-none focus:ring-2 focus:ring-rose-500">
+                <button type="submit" class="bg-rose-600 text-white rounded-r-lg px-4 py-2">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
-      </div>
-    </div>
-  </form>
-  <div id="react-autowhatever-navSuggestionSearch" role="listbox" class="sc-kSBLkt gaNOlz react-autosuggest__suggestions-container indb-header search-menu"></div>
-</div>
+    </header>
 
-<div class="w-full bg-gray-100 border-gray-200 rounded-lg p-4 mt-4">
-    <a href="index.html" class="text-gray-800 text-base font-semibold">
-    Main page
-    </a>
-  </div>
-  <a href="index.html"></a>
-<script src="./assets/js/script.js"></script>
+    <main>
+        <div class="container mx-auto mt-4">
+            <!-- Carousel sections, features, and movies tab here -->
+
+            <!-- Top of Page Feature -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-semibold">Top of Page Feature</h2>
+                <div class="flex justify-center items-center bg-gray-200 p-4">
+                    <!-- Top of Page Feature content here -->
+                </div>
+            </div>
+
+            <!-- Homepage Feature -->
+            <div class="mb-8">
+                <a href="index.html" class="text-2xl font-semibold">Homepage</a> 
+                <div class="flex justify-center items-center bg-gray-200 p-4">
+                    <!-- Homepage Feature content here -->
+                </div>
+            </div>
+
+            <!-- Movies Tab -->
+            <div class="mb-8">
+                <input type="checkbox" id="moviesTab" class="hidden">
+                <label for="moviesTab" class="text-xl font-semibold cursor-pointer">Movies</label>
+                <div class="flex justify-center items-center bg-gray-200 p-4">
+                    <p>Click <a href="movies.html" class="text-blue-500">here</a> to go to the movies page.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="center-top">
+        <h1 class="text-4xl font-semibold">PopWatch</h1>
+    </div>
+
+    <button onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-rose-600 text-white px-4 py-2 rounded-full">
+        Top of Page
+    </button>
+
+    <script src="./assets/js/script.js"></script>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
