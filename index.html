@@ -24,15 +24,17 @@
 
 <body class="bg-gray-100">
     <header class="bg-rose-800 py-4 text-white">
-        <div class="container mx-auto flex justify-end items-center px-4"> 
-            <form class="flex">
-                <input type="search" placeholder="Search..." class="rounded-l-lg px-4 py-2 outline-none focus:ring-2 focus:ring-rose-500">
-                <button type="submit" class="bg-rose-600 text-white rounded-r-lg px-4 py-2">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
-        </div>
-    </header>
+        <body class="bg-gray-100">
+            <header class="bg-rose-800 py-4 text-black">
+                <div class="container mx-auto flex justify-end items-center px-4">
+                    <form class="flex">
+                        <input type="search" placeholder="Search..." class="rounded-l-lg px-4 py-2 outline-none focus:ring-2 focus:ring-rose-500">
+                        <button type="submit" class="bg-rose-600 text-white rounded-r-lg px-4 py-2">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </header>
 
     <main>
         <div class="container mx-auto mt-4">
@@ -40,6 +42,7 @@
 
             <!-- Top of Page Feature -->
             <div class="mb-8">
+
                 <h2 class="text-2xl font-semibold">Top of Page Feature</h2>
                 <div class="flex justify-center items-center bg-gray-200 p-4" id="featured">
                     <!-- Top of Page Feature content here -->
@@ -70,7 +73,7 @@
 
             <!-- Homepage Feature -->
             <div class="mb-8">
-                <a href="index.html" class="text-2xl font-semibold">Homepage</a> 
+                <h2 class="text-2xl font-semibold">New BoxOffice</h2>
                 <div class="flex justify-center items-center bg-gray-200 p-4">
                     <!-- Homepage Feature content here -->
                 </div>
@@ -79,7 +82,7 @@
             <!-- Movies Tab -->
             <div class="mb-8">
                 <input type="checkbox" id="moviesTab" class="hidden">
-                <label for="moviesTab" class="text-xl font-semibold cursor-pointer">Movies</label>
+                <label for="moviesTab" class="text-xl font-semibold cursor-pointer">Favorites or top rated</label>
                 <div class="flex justify-center items-center bg-gray-200 p-4">
                     <p>Click <a href="movies.html" class="text-blue-500">here</a> to go to the movies page.</p>
                 </div>
@@ -95,6 +98,7 @@
         Top of Page
     </button>
 
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -108,10 +112,7 @@
       </script>
 
     <script src="./assets/js/script.js"></script>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+        function scrollToTop()
