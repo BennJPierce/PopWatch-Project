@@ -35,3 +35,11 @@ form {
     font-size: 16px;
   }
   
+  .card{
+    display: flex;
+    flex-direction: column;
+    height: 378px;
+    margin: 5px 0 10px;
+    position: relative;
+    width: 224px;
+  }
