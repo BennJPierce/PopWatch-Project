@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com" rel="stylesheet"></script>
     <title>PopWatch</title>
     <style>
         .center-top {
@@ -18,6 +18,7 @@
             top: 20px;
         }
     </style>
+    
 </head>
 
 <body class="bg-gray-100">
@@ -38,8 +39,25 @@
 
             <!-- Top of Page Feature -->
             <div class="mb-8">
-                <h2 class="text-2xl font-semibold">Top of Page Feature</h2>
+                <h2 class="text-2xl font-semibold">Top Box Office </h2>
                 <div class="flex justify-center items-center bg-gray-200 p-4">
+                     <a href="movies.html" id = "BoxOfficeButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                    <!-- Top of Page Feature content here -->
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-semibold">Most Popular Movies</h2>
+                <div class="flex justify-center items-center bg-gray-200 p-4">
+                     <a href="movies.html" id = "MostPopularButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                    <!-- Top of Page Feature content here -->
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-semibold">Top Rated Movies</h2>
+                <div class="flex justify-center items-center bg-gray-200 p-4">
+                     <a href="movies.html" id = "TopRatedButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
                     <!-- Top of Page Feature content here -->
                 </div>
             </div>
@@ -57,7 +75,7 @@
                 <input type="checkbox" id="moviesTab" class="hidden">
                 <label for="moviesTab" class="text-xl font-semibold cursor-pointer">Movies</label>
                 <div class="flex justify-center items-center bg-gray-200 p-4">
-                    <p>Click <a href="movies.html" class="text-blue-500">here</a> to go to the movies page.</p>
+                    <a href="movies.html" class="bg-rose-600 text-white px-4 py-2 rounded-full">See all Movies</a>
                 </div>
             </div>
         </div>

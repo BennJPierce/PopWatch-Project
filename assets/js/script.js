@@ -41,3 +41,7 @@ function renderMovieList(data, listLocation) {
 }
 
 renderFrontPage();
+
+
+
+
