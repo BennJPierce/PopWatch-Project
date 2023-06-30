@@ -60,7 +60,7 @@ function renderMovieList(data, listLocation) {
   imageDisplay.setAttribute('class', 'card-image');
   titleDisplay.setAttribute('class', 'card-text');
 
-  imageDisplay.setAttribute('style', 'background-image:' + pic);
+  imageDisplay.style.backgroundImage = 'url('+pic+')';
   titleDisplay.innerHTML = title;
 }
 
