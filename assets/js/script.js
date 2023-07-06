@@ -3,6 +3,7 @@ baseUrl = 'https://moviesdatabase.p.rapidapi.com'
 function renderFrontPage(){
   //This will have all the functions that fetch and render different lists of movies on the front page
   renderTopBoxWeekend();
+  renderTopBox200();
 }
 
 function fetchMovieList(sort, location){
@@ -28,12 +29,18 @@ function fetchMovieList(sort, location){
   
 }
 
-function renderTopBoxWeekend(data) {
+function renderTopBoxWeekend() {
   //-This function will call a function that will create movie elements based on the data provided.
   //-The elements should be within an already existing container element.
   //renderMovieList(data, topBoxWeekend); ---example
   var sort = "top_boxoffice_last_weekend_10"
   var location = document.querySelector('#featured');
+  fetchMovieList(sort, location);
+}
+
+function renderTopBox200(){
+  var sort = 'top_boxoffice_200&sort=pos.incr';
+  var location = document.querySelector('#box_office');
   fetchMovieList(sort, location);
 }
 
@@ -47,7 +54,7 @@ function renderMovieList(data, listLocation) {
   for(var i = 0; i < data.length; i++) {
     console.log(data[i]);
     var title = data[i].titleText.text;
-    if(data[i].primaryImage === null){
+    if(data[i].primaryImage === null || !data[i].primaryImage){
       var pic = "./assets/images/none.png";
     } else {
       var pic = data[i].primaryImage.url;
