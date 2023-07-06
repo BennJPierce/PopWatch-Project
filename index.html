@@ -140,10 +140,6 @@
         <h1 class="text-4xl font-semibold">PopWatch</h1>
     </div>
 
-    <button onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-rose-600 text-white px-4 py-2 rounded-full">
-        Top of Page
-    </button>
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
@@ -160,5 +156,16 @@
     <script src="./assets/js/script.js"></script>
       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+    <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; right: 20px;">Top page</button>
+
     <script>
-        function scrollToTop()
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
