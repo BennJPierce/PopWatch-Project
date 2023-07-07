@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const baseUrl = 'https://moviesdatabase.p.rapidapi.com';
-  const apiKey = 'YOUR_API_KEY'; // Replace with your API key
+  var baseUrl = 'https://moviesdatabase.p.rapidapi.com';
+  var apiKey = 'YOUR_API_KEY'; // Replace with your API key
 
   function fetchMoviesByGenre(genre) {
     var url = baseUrl + '/titles?genre=' + genre;
