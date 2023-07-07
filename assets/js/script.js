@@ -4,6 +4,8 @@ function renderFrontPage(){
   //This will have all the functions that fetch and render different lists of movies on the front page
   renderTopBoxWeekend();
   renderTopBox200();
+  renderTopRated();
+  renderMostPopular();
 }
 
 function fetchMovieList(sort, location){
@@ -41,6 +43,18 @@ function renderTopBoxWeekend() {
 function renderTopBox200(){
   var sort = 'top_boxoffice_200&sort=pos.incr';
   var location = document.querySelector('#box_office');
+  fetchMovieList(sort, location);
+}
+
+function renderTopRated(){
+  var sort = 'top_rated_250&sort=pos.incr';
+  var location = document.querySelector('#rated');
+  fetchMovieList(sort, location);
+}
+
+function renderMostPopular(){
+  var sort = 'most_pop_movies&sort=pos.incr';
+  var location = document.querySelector('#popular');
   fetchMovieList(sort, location);
 }
 
