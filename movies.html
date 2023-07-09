@@ -24,7 +24,7 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-rose-800 py-4 text-black">
+    <header class="bg-sky-900 py-4 text-black">
         <div class="container mx-auto flex justify-end items-center px-4">
             <form class="flex">
                 <input type="search" placeholder="Search..." class="rounded-l-lg px-4 py-2 outline-none focus:ring-2 focus:ring-rose-500">
@@ -36,9 +36,9 @@
     </header>
 
     <main>
-        <div id="moviespage" class="container mx-auto mt-4">
+        <div  class="container mx-auto mt-4">
             <!-- Movie content here -->
-            <h1 class="text-2xl font-semibold mb-4">Movies</h1>
+            <h1 id="movies_header" class="text-2xl font-semibold mb-4">Movies</h1>
             
             <div class="dropdown">
                 <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md">Genre</button>
@@ -49,8 +49,13 @@
                     <a href="#">Fantasy</a>
                 </div>
             </div>
-            
-            <!-- Movie listings here -->
+            <div id="moviespage">
+                <!-- Movie listings here -->
+            </div>
+            <div class="loading-dots">
+                <h1 class="loading">Loading</h1>
+                <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+            </div>
         </div>
         
         <div class="fixed bottom-4 right-4">
