@@ -37,7 +37,7 @@
     <main>
         <div class="container mx-auto mt-4">
             <!-- Carousel sections, features, and movies tab here -->
-
+            
 
             <!-- Top of Page Feature -->
             <div class="mb-8">
@@ -97,7 +97,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html" id = "BoxOfficeButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=top_boxoffice_200" id = "BoxOfficeButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
                     <!-- Top of Page Feature content here -->
                 </div>
             </div>
@@ -128,7 +128,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html" id = "MostPopularButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=most_pop_movies" id = "MostPopularButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
                     <!-- Top of Page Feature content here -->
                 </div>
             </div>
@@ -159,7 +159,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html" id = "TopRatedButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=top_rated_250" id = "TopRatedButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
 
                     <!-- Top of Page Feature content here -->
                   
@@ -171,8 +171,12 @@
             <div class="mb-8">
                 <input type="checkbox" id="moviesTab" class="hidden">
                 <div class="flex justify-center items-center bg-sky-100 p-4">
-                    <a href="movies.html" class="bg-rose-600 text-white px-4 py-2 rounded-full">See all Movies</a>
+                    <a href="movies.html?genre=most_pop_movies" class="bg-rose-600 text-white px-4 py-2 rounded-full">See all Movies</a>
                 </div>
+            </div>
+            <div class="flex flex-wrap mb-8 justify-center">
+                <h2 class="text-2xl font-semibold">Random Chuck Norris Joke:</h2>
+                <div id="chuckJoke" class="bg-sky-100 p-4 basis-full text-black text-center font-serif"></div>
             </div>
         </div>
     </main>

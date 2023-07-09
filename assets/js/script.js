@@ -1,4 +1,7 @@
-baseUrl = 'https://moviesdatabase.p.rapidapi.com'
+const baseUrl = 'https://moviesdatabase.p.rapidapi.com'
+const chuckUrl = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random?category=movie'
+const apiKey = '21c23dbafcmshe8c3bdcb0d21f32p19b5cdjsn15172eebf085'
+const chuckElement = document.querySelector('#chuckJoke');
 
 function renderFrontPage(){
   //This will have all the functions that fetch and render different lists of movies on the front page
@@ -6,6 +9,27 @@ function renderFrontPage(){
   renderTopBox200();
   renderTopRated();
   renderMostPopular();
+  fetchChuckNorris();
+}
+
+function fetchChuckNorris(){
+  fetch(chuckUrl, {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com'
+    }
+  })
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+    chuckElement.innerHTML = data.value;
+  })
+  .catch(function(err){
+    console.errror(err);
+  })
 }
 
 function fetchMovieList(sort, location){
@@ -14,7 +38,7 @@ function fetchMovieList(sort, location){
   fetch(url, {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '21c23dbafcmshe8c3bdcb0d21f32p19b5cdjsn15172eebf085',
+      'X-RapidAPI-Key': apiKey,
       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
     }
   })
