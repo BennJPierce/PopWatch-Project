@@ -1,1 +1,31 @@
 # PopWatch-Project
+
+## Description
+
+The PopWatch project is an attempt to make a movies database website, where you can see all movies (found on IMDb) available, and add them to a watch list. The goal of this project is to add many features in the future, such as movie description pages, a search bar, a sort by genre, and many more.
+
+## Installation
+
+N/A
+
+## Usage
+
+This website can currently be used to find movies sorted by Top Box Office, Most Popular, and Top Rated. In the future we intend to add more ways to sort by genre.
+
+You can also add movies to a watch list by clicking the red button on each movie. To remove from the watch list, return to the main page and click the red button on the watchlisted movies you want to remove.
+
+The website also supports a Chuck Norris joke at the bottom of the main page, this joke will refresh every time the page is loaded.
+
+(put image here)
+
+(put website link here)
+
+## Credits
+
+Massive contributor - [HiZapollo](https://github.com/HiZapollo)
+
+Contributor - [Emareaun](https://github.com/Emareaun)
+
+## License
+
+Refer to license in the repo.
