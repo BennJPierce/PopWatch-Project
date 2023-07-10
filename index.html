@@ -8,30 +8,13 @@
     <script src="https://cdn.tailwindcss.com" rel="stylesheet"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>PopWatch</title>
-    <style>
-        .center-top {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .center-top h1 {
-            position: absolute;
-            top: 20px;
-        }
-    </style>
-    
 </head>
 
 <body class="bg-gray-100">
     <header class="bg-sky-900 py-4 text-white">
         <body class="bg-gray-100">
-            <header class="bg-sky-900 py-4 text-black">
-                <div class="container mx-auto flex justify-end items-center px-4">
-                    <form class="flex">
-                    </form>
-                </div>
+            <header class="bg-sky-900 py-4 text-white text-center">
+                <h1 class="text-4xl font-semibold">PopWatch</h1>    
             </header>
         
     <main>
@@ -97,7 +80,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html?genre=top_boxoffice_200" id = "BoxOfficeButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=top_boxoffice_200" id = "BoxOfficeButton" class="text-center bg-blue-950 text-white px-4 py-2 rounded-full">See More</a>
                     <!-- Top of Page Feature content here -->
                 </div>
             </div>
@@ -128,7 +111,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html?genre=most_pop_movies" id = "MostPopularButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=most_pop_movies" id = "MostPopularButton" class="text-center bg-blue-950 text-white px-4 py-2 rounded-full">See More</a>
                     <!-- Top of Page Feature content here -->
                 </div>
             </div>
@@ -159,7 +142,7 @@
                         </div>
                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
-                     <a href="movies.html?genre=top_rated_250" id = "TopRatedButton" class="absolute right-11 bg-rose-600 text-white px-4 py-2 rounded-full">See more</a>
+                     <a href="movies.html?genre=top_rated_250" id = "TopRatedButton" class="text-center bg-blue-950 text-white px-4 py-2 rounded-full">See More</a>
 
                     <!-- Top of Page Feature content here -->
                   
@@ -170,10 +153,19 @@
             <!-- Movies Tab -->
             <div class="mb-8">
                 <input type="checkbox" id="moviesTab" class="hidden">
-                <div class="flex justify-center items-center bg-sky-100 p-4">
-                    <a href="movies.html?genre=most_pop_movies" class="bg-rose-600 text-white px-4 py-2 rounded-full">See all Movies</a>
+                <div class="flex justify-center items-center bg-sky-900 p-4">
+                    <a href="movies.html?genre=most_pop_movies" class="bg-blue-950 text-white px-4 py-2 rounded-full">See all Movies</a>
                 </div>
             </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-semibold">Watchlist</h2>
+                <div id="watchlist" class="flex flex-wrap justify-center items-center bg-sky-100 text-black p-4">
+                    <span id="emptyness">Watchlist is currently empty.</span>
+                </div>
+
+            </div>
+
             <div class="flex flex-wrap mb-8 justify-center">
                 <h2 class="text-2xl font-semibold">Random Chuck Norris Joke:</h2>
                 <div id="chuckJoke" class="bg-sky-100 p-4 basis-full text-black text-center font-serif"></div>
@@ -181,15 +173,25 @@
         </div>
     </main>
 
-    <div class="center-top">
-        <h1 class="text-4xl font-semibold">PopWatch</h1>
-    </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 5,
+          slidesPerView: 1,
+          breakpoints: {
+            768:{
+                slidesPerView: 2,
+            },
+            1024:{
+                slidesPerView: 3,
+            },
+            1280:{
+                slidesPerView: 4,
+            },
+            1536: {
+                slidesPerView: 5,
+            }
+          },
           spaceBetween: 5,
           pagination: {
             el: ".swiper-pagination",
@@ -202,7 +204,7 @@
       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
-    <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; right: 20px;">Top page</button>
+    <button onclick="scrollToTop()" ><p class="fixed bottom-6 right-6 text-white bg-blue-950 px-4 py-2 rounded-full">Top Page</p></button>
 
     <script>
         function scrollToTop() {

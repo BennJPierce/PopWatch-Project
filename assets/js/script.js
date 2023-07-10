@@ -2,9 +2,11 @@ const baseUrl = 'https://moviesdatabase.p.rapidapi.com'
 const chuckUrl = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random?category=movie'
 const apiKey = '21c23dbafcmshe8c3bdcb0d21f32p19b5cdjsn15172eebf085'
 const chuckElement = document.querySelector('#chuckJoke');
+const emptyWatchElement = document.querySelector('#emptyness');
+let watchList = [];
 
+// Runs all the rendering functions
 function renderFrontPage(){
-  //This will have all the functions that fetch and render different lists of movies on the front page
   renderTopBoxWeekend();
   renderTopBox200();
   renderTopRated();
@@ -12,6 +14,7 @@ function renderFrontPage(){
   fetchChuckNorris();
 }
 
+// Fethes the chuck norris joke
 function fetchChuckNorris(){
   fetch(chuckUrl, {
     method: 'GET',
@@ -24,14 +27,36 @@ function fetchChuckNorris(){
     return response.json();
   })
   .then(function(data){
-    console.log(data);
-    chuckElement.innerHTML = data.value;
+    chuckElement.innerHTML = data.value; //adds the joke to the page
   })
   .catch(function(err){
     console.errror(err);
   })
 }
 
+// Fetches an individual movie's info
+function fetchMovie(movieId){
+  let url = baseUrl + '/titles/' + movieId;
+
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+    }
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      renderWatchList(data.results);
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+}
+
+// Fetches a list of movies depending on the sort
 function fetchMovieList(sort, location){
   var url = baseUrl + '/titles/?info=custom_info&list='+sort;
 
@@ -46,7 +71,6 @@ function fetchMovieList(sort, location){
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       renderMovieList(data.results, location);
     })
     .catch(function (err) {
@@ -55,10 +79,8 @@ function fetchMovieList(sort, location){
   
 }
 
+// These render functions find the location and provide the sort for the fetch
 function renderTopBoxWeekend() {
-  //-This function will call a function that will create movie elements based on the data provided.
-  //-The elements should be within an already existing container element.
-  //renderMovieList(data, topBoxWeekend); ---example
   var sort = "top_boxoffice_last_weekend_10"
   var location = document.querySelector('#featured');
   fetchMovieList(sort, location);
@@ -82,17 +104,12 @@ function renderMostPopular(){
   fetchMovieList(sort, location);
 }
 
+// This function creates the movie list elements
 function renderMovieList(data, listLocation) {
-  //-This function will take whatever list of movies it is given, and will create the box elements
-  //with the movie image and title.
-  //-Will most likely need a loop
-  //-Each Movie has to be a link that provides the movie id in its query string, this will allow us to open a
-  //new html and use the query parameters to create the page for the individual movie
   var location = listLocation.children[0].children[0];
   for(var i = 0; i < data.length; i++) {
-    console.log(data[i]);
     var title = data[i].titleText.text;
-    if(data[i].primaryImage === null || !data[i].primaryImage){
+    if(data[i].primaryImage === null){
       var pic = "./assets/images/none.png";
     } else {
       var pic = data[i].primaryImage.url;
@@ -102,40 +119,103 @@ function renderMovieList(data, listLocation) {
     var card = document.createElement('a');
     var titleDisplay = document.createElement('div');
     var imageDisplay = document.createElement('div');
+    var watchButton = document.createElement('button');
 
-    card.append(imageDisplay, titleDisplay);
+    card.append(imageDisplay, titleDisplay, watchButton);
     movieContainer.append(card);
     location.children[i].append(movieContainer);
-
+    
     movieContainer.setAttribute('class', 'card');
     card.setAttribute('class', 'card');
     imageDisplay.setAttribute('class', 'card-image');
     titleDisplay.setAttribute('class', 'card-text');
+    if(watchList.indexOf(data[i].id) !== -1){
+      watchButton.setAttribute('class', 'yesWatch');
+      watchButton.innerHTML = 'Watchlisted!';
+    } else{
+      watchButton.setAttribute('class', 'noWatch');
+      watchButton.innerHTML = 'Add to Watchlist';
+      watchButton.addEventListener("click", addToWatchList);
+    }
+    
+    watchButton.setAttribute('data-movieid', data[i].id)
+    
 
+    
     imageDisplay.style.backgroundImage = 'url('+pic+')';
     titleDisplay.innerHTML = title;
   }
-  /*var title = data[9].titleText.text;
-  var pic = data[9].primaryImage.url;
+}
 
-  var movieContainer = document.createElement('div');
-  var card = document.createElement('a');
-  var titleDisplay = document.createElement('div');
-  var imageDisplay = document.createElement('div');
+// This function creates the watchlist elements
+function renderWatchList(movie){
+  let location = document.querySelector('#watchlist');
+  if(watchList){
+    emptyWatchElement.remove();
+  }
+  let title = movie.titleText.text;
+  if(movie.primaryImage === null){
+    var pic = "./assets/images/none.png";
+  } else {
+    var pic = movie.primaryImage.url;
+  }
 
-  card.append(imageDisplay, titleDisplay);
+  let movieContainer = document.createElement('div');
+  let card = document.createElement('a');
+  let titleDisplay = document.createElement('div');
+  let imageDisplay = document.createElement('div');
+  let removeButton = document.createElement('button');
+
+  card.append(imageDisplay, titleDisplay, removeButton);
   movieContainer.append(card);
-  listLocation.append(movieContainer);
+  location.append(movieContainer);
 
   movieContainer.setAttribute('class', 'card');
   card.setAttribute('class', 'card');
   imageDisplay.setAttribute('class', 'card-image');
   titleDisplay.setAttribute('class', 'card-text');
+  removeButton.setAttribute('class', 'remove');
+  removeButton.setAttribute('data-movieid', movie.id);
+  removeButton.addEventListener("click", removeWatchlist);
 
+  removeButton.innerHTML = 'Remove';
   imageDisplay.style.backgroundImage = 'url('+pic+')';
-  titleDisplay.innerHTML = title;*/
+  titleDisplay.innerHTML = title;
 }
 
+// This function keeps the watchList up to date with the local storage
+function rememberWatchList(){
+  let rememberedList = localStorage.getItem('watchList');
+  if(rememberedList){
+    watchList = JSON.parse(rememberedList);
+  }
+  for(let i = 0; i < watchList.length; i++){
+    fetchMovie(watchList[i]);
+  }
+}
+// This function removes a movie from the watchList array and sets the localStorage
+function removeWatchlist(){
+  let titleId = this.getAttribute('data-movieid');
+  watchList.splice(watchList.indexOf(titleId), 1);
+  localStorage.setItem('watchList', JSON.stringify(watchList));
+  location.reload();
+}
+
+// This function adds the movie that was clicked on to the localStorage and watchlist
+function addToWatchList(event){
+  let titleId = this.getAttribute('data-movieid');
+  if(watchList.indexOf(titleId) !== -1){
+    return;
+  }
+  watchList.push(titleId);
+
+  localStorage.setItem('watchList', JSON.stringify(watchList));
+  event.target.setAttribute('class', 'yesWatch');
+  event.target.innerHTML = 'Watchlisted!';
+  fetchMovie(titleId);
+}
+
+rememberWatchList();
 renderFrontPage();
 
 
