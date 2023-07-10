@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
   let page = 1;
   const queryString = document.location.search;
   let genre = queryString.split('=')[1];
+  let watchList = [];
 
+  // Handles the sort depending on the button used to get here
   if (genre === "most_pop_movies"){
     headerElement.innerHTML = "Most Popular Movies";
   } else if (genre === "top_boxoffice_200"){
@@ -30,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         renderMovieList(data.results, document.querySelector('#moviespage'));
       })
       .catch(function (err) {
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+  // Fetches the movies from the sort provided (genre isn't the right word to use here but idc anymore)
   function fetchAllMovies() {
     var url = baseUrl + '/titles/?info=custom_info&list='+genre+'&sort=pos.incr&limit=48&page='+page;
 
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         renderMovieList(data.results, document.querySelector('#moviespage'));
       })
       .catch(function (err) {
@@ -65,8 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function renderMovieList(data, listLocation) {
-    //listLocation.innerHTML = ''; // Clear previous movie listings
-
     for (var i = 0; i < data.length; i++) {
       var title = data[i].titleText.text;
       if(data[i].primaryImage === null || !data[i].primaryImage){
@@ -79,11 +78,21 @@ document.addEventListener('DOMContentLoaded', function() {
       var card = document.createElement('a');
       var titleDisplay = document.createElement('div');
       var imageDisplay = document.createElement('div');
+      var watchButton = document.createElement('button');
 
-      card.append(imageDisplay, titleDisplay);
+      card.append(imageDisplay, titleDisplay, watchButton);
       movieContainer.append(card);
       listLocation.append(movieContainer);
+      if(watchList.indexOf(data[i].id) !== -1){
+        watchButton.setAttribute('class', 'yesWatch');
+        watchButton.innerHTML = 'Watchlisted!';
+      } else{
+        watchButton.setAttribute('class', 'noWatch');
+        watchButton.innerHTML = 'Add to Watchlist';
+        watchButton.addEventListener("click", addToWatchList);
+      }
 
+      watchButton.setAttribute('data-movieid', data[i].id)
       movieContainer.setAttribute('class', 'card');
       card.setAttribute('class', 'card');
       imageDisplay.setAttribute('class', 'card-image');
@@ -99,6 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchMoviesByGenre(genre);
   }
 
+  // Watchlist functions from the main page, makes them work here
+  function rememberWatchList(){
+    let rememberedList = localStorage.getItem('watchList');
+    if(rememberedList){
+      watchList = JSON.parse(rememberedList);
+    }
+  }
+
+  function addToWatchList(event){
+    let titleId = this.getAttribute('data-movieid');
+    if(watchList.indexOf(titleId) !== -1){
+      return;
+    }
+    watchList.push(titleId);
+
+    localStorage.setItem('watchList', JSON.stringify(watchList));
+    event.target.setAttribute('class', 'yesWatch');
+    event.target.innerHTML = 'Watchlisted!';
+  }
+
+  rememberWatchList();
   renderFrontPage();
 
   var genreLinks = document.querySelectorAll('.dropdown-content a');
@@ -106,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', handleGenreSelection);
   });
 
+  // Infinite scroll function
   function handleInfiniteScroll(){
     const endOfPage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
