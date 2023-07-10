@@ -1,3 +1,144 @@
 .header-color{
     background-color: blue;
 }
+
+
+form {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #000000;
+  }
+  
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  .fa-search {
+    font-size: 16px;
+  }
+  
+  .card{
+    display: flex;
+    flex-direction: column;
+    height: 378px;
+    margin: 5px 0 10px;
+    position: relative;
+    width: 224px;
+    margin: .5rem;
+    position: relative;
+  }
+
+  .card-image {
+    background-position: 50%!important;
+    background-repeat: no-repeat!important;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,.5);
+    height: 100%;
+    width: 100%;
+  }
+
+  .card-text{
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    box-shadow: 0 0 15px #000;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  #moviespage{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .loading-dots {
+    text-align: center;
+    z-index: 5;
+  
+    .dot {
+      display: inline;
+      margin-left: 0.2em;
+      margin-right: 0.2em;
+      position: relative;
+      top: -1em;
+      font-size: 3.5em;
+      opacity: 0;
+      animation: showHideDot 2.5s ease-in-out infinite;
+  
+      &.one { animation-delay: 0.2s; }
+      &.two { animation-delay: 0.4s; }
+      &.three { animation-delay: 0.6s; }
+    }
+  }
+  
+  @keyframes showHideDot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+.loading{
+  font-size: 2rem;
+}
+
+.noWatch{
+  background-color: rgb(207, 7, 7);
+  position: absolute;
+  right: 7px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
+  border: black 1px solid;
+  border-radius: 5px;
+  opacity: 75%;
+  font-size: 10px;
+}
+
+.yesWatch{
+  background-color: rgb(87, 207, 7);
+  position: absolute;
+  right: 7px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
+  border: black 1px solid;
+  border-radius: 5px;
+  opacity: 75%;
+  font-size: 10px;
+  cursor: default;
+}
+
+.remove{
+  background-color: rgb(207, 7, 7);
+  position: absolute;
+  right: 7px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
+  border: black 1px solid;
+  border-radius: 5px;
+  opacity: 75%;
+  font-size: 10px;
+}

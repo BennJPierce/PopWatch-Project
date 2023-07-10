@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com" rel="stylesheet"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Movies - PopWatch</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-sky-900">
+    <header class="bg-sky-900 py-4 text-black">
+        <div class="container mx-auto flex justify-end items-center px-4">
+            
+        </div>
+    </header>
+
+    <main>
+        <div  class="container bg-sky-100 mx-auto mt-4 px-4 py-4 rounded-md">
+            <h1 id="movies_header" class="text-2xl font-semibold mb-4">Movies</h1>
+            
+            <div id="moviespage">
+                <!-- Movie listings here -->
+            </div>
+
+            <div class="loading-dots">
+                <h1 class="loading">Loading</h1>
+                <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+            </div>
+        </div>
+        
+        <div class="fixed bottom-4 right-4">
+            <a href="index.html" class="bg-blue-950 text-white px-4 py-2 rounded-full">Go Back to Main Page</a>
+        </div>
+    </main>
+
+    <script src="./assets/js/movies.js"></script>
+</body>
+</html>
