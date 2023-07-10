@@ -16,7 +16,8 @@ You can also add movies to a watch list by clicking the red button on each movie
 
 The website also supports a Chuck Norris joke at the bottom of the main page, this joke will refresh every time the page is loaded.
 
-(put image here)
+![PopWatch website listing the featured movies and the top box office movies](https://github.com/BennJPierce/PopWatch-Project/assets/129823817/25b85a2b-f2a0-423c-98ab-09f522067afa)
+
 
 (put website link here)
 
