@@ -1,5 +1,5 @@
 # PopWatch-Project
-
+https://bennjpierce.github.io/PopWatch-Project/index.html 
 ## Description
 
 The PopWatch project is an attempt to make a movies database website, where you can see all movies (found on IMDb) available, and add them to a watch list. The goal of this project is to add many features in the future, such as movie description pages, a search bar, a sort by genre, and many more.
@@ -23,9 +23,11 @@ The website also supports a Chuck Norris joke at the bottom of the main page, th
 
 ## Credits
 
-Massive contributor - [HiZapollo](https://github.com/HiZapollo)
+Project Leader - [HiZapollo](https://github.com/HiZapollo)
 
 Contributor - [Emareaun](https://github.com/Emareaun)
+
+Contributor - [Ben Pierce](https://github.com/BennJPierce) 
 
 ## License
 
